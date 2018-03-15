@@ -19,8 +19,7 @@
 
 @implementation DTYCTakePhotoManager
 
-
-- (void)yc_showActionSheetImageCallBack:(ImageCallBackBlock)imageBlock{
+- (void)yc_showActionSheetCallBack:(ImageCallBackBlock)imageBlock {
     UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"提示" message:@"请选择图片获取方式" preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -42,6 +41,7 @@
     [self.showViewController presentViewController:alertcontroller animated:YES completion:nil];
 }
 
+
 - (UIViewController *)showViewController {
     if (!_showViewController) {
         UINavigationController *nvc = (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
@@ -59,7 +59,7 @@
         return;
     }
     self.pickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self.showController presentViewController:self.pickerVC animated:YES completion:nil];
+    [self.showViewController presentViewController:self.pickerVC animated:YES completion:nil];
 }
 
 #pragma mark -
@@ -67,7 +67,7 @@
 - (void)album {
 
     self.pickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self.showController presentViewController:self.pickerVC animated:YES completion:nil];
+    [self.showViewController presentViewController:self.pickerVC animated:YES completion:nil];
 }
 
 #pragma mark -
