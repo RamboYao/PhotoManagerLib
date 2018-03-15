@@ -13,8 +13,6 @@ typedef void(^ImageCallBackBlock)(UIImage *image);
 
 @interface DTYCTakePhotoManager : NSObject
 
-+ (instancetype)shareManager;
-
 - (void)yc_showActionSheetCallBack:(ImageCallBackBlock)imageBlock;
 
 @end
